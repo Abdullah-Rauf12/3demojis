@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <title>3D Emojis</title>
 <style>
-  body { margin: 0; overflow:hidden; background:#f5f5f5; }
+  body { margin:0; overflow:hidden; background:#f5f5f5; }
 </style>
 </head>
 <body>
 
 <script type="module">
 
-// Import Three.js and GLTFLoader from CDN
+// ES Module import
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
 
@@ -31,14 +31,14 @@ scene.add(light);
 
 const loader = new GLTFLoader();
 
-// Happy Emoji
-loader.load('happy.glb', function(gltf){
+// Load Happy Emoji
+loader.load('happy.glb', gltf => {
     gltf.scene.position.x = -1.5;
     scene.add(gltf.scene);
 });
 
-// Neutral Emoji
-loader.load('neutral.glb', function(gltf){
+// Load Neutral Emoji
+loader.load('neutral.glb', gltf => {
     gltf.scene.position.x = 1.5;
     scene.add(gltf.scene);
 });
@@ -52,5 +52,6 @@ function animate(){
 animate();
 
 </script>
+
 </body>
 </html>
